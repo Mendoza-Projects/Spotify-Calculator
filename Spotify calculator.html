@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Payout Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        input, button {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Spotify Payout Calculator</h2>
+    <label for="streams">Number of Streams:</label>
+    <input type="number" id="streams" placeholder="Enter number of streams" required>
+    <button onclick="calculatePayout()">Calculate Payout</button>
+    <p id="result"></p>
+
+    <script>
+        function calculatePayout() {
+            var streams = document.getElementById("streams").value;
+            var payoutPerStream = 0.0035; // Replace this with the actual payout per stream value
+
+            if (!isNaN(streams) && streams >= 0) {
+                var totalPayout = streams * payoutPerStream;
+                document.getElementById("result").innerHTML = "Total Payout: $" + totalPayout.toFixed(2);
+            } else {
+                document.getElementById("result").innerHTML = "Please enter a valid number of streams.";
+            }
+        }
+    </script>
+</body>
+</html>
